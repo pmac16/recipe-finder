@@ -1,5 +1,5 @@
 /* GLOBAL VARIABLES */
-displayRecipeDiv = document.querySelector("#display-recipe");
+displayRecipeEl = document.querySelector("#display-recipe");
 
 /* FUNCTIONS */
 
