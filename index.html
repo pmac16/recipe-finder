@@ -4,46 +4,115 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" 
-    integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" 
-    crossorigin="anonymous" />
+    <link 
+        rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" 
+        integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" 
+        crossorigin="anonymous" 
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css" />
     
     <title>Recipe Finder</title>
 </head>
+
 <body>
     <!-- header bar with title name -->
-    <header>
-        <h1>Recipe Finder</h1>
+    <header class="red lighten-2">
+        <h1 class="center-align">Recipe Finder</h1>
     </header>
 
-    <!-- split into 2 sections: searchbars and main content -->
+    <!-- Search and My Recipe -->
     <div class="row">
+        <!-- Search -->
+        <div class="col s12 m4 l3 grey lighten-2"> 
+            <!-- Search bar for food -->
+            <div class="row search">
+                <form class="col s12" id="food-form">
+                    <div class="row">
+                        <h5>Search for a Meal:</h5>
+                        <div class="input-field col s6">
+                            <label for="meal-search">Type an Ingredient!</label>
+                            <input id="meal-search" type="text" class="validate">
+                        </div>
+                        <div class="input-field col s6">
+                            <button class="btn" type="submit" name="action">
+                                <i class="material-icons right">search</i>
+                              </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Search bar for drinks -->
+            <div class="row search">
+                <form class="col s12" id="drink-form">
+                    <div class="row">
+                        <h5>Search for a Drink:</h5>
+                        <div class="input-field col s6">
+                            <label for="drink-search">Type an Ingredient!</label>
+                            <input id="drink-search" type="text" class="validate">
+                        </div>
+                        <div class="input-field col s6">
+                            <button class="btn" type="submit" name="action">
+                                <i class="material-icons right">search</i>
+                              </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
-        <div class="col s3">
-            <!-- searchbars -->
-            <form id="food-form">
-                <label for="meal-search">Search for Meals:</label>
+        
+
+                <!-- <label for="meal-search">Search for Meals:</label>
                 <input name="meal-search" id="meal-search" type="text" autofocus="true" placeholder="Type an ingredient!" />
-                <button type="submit">Q</button>
-            </form>
+                <br>
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>  -->
 
-            <form id="drink-form">
+            <!-- <form id="drink-form">
                 <label for="drink-search">Search for Meals:</label>
-                <!-- TODO (optional): change placeholder text? -->
+                
                 <input name="drink-search" id="drink-search" type="text" autofocus="true" placeholder="Enter desired alcohol content!" />
-                <button type="submit">Q</button>
-            </form>
-
-            <!-- Link to My Recipes page -->
-            <a href="./myrecipes.html"><button>My Recipes</button></a>
+                
+                <button type="submit"><i class="fas fa-search "></i></button>
+               
+            </form>  -->
+               
+  
         </div>
   
-        <div class="col s9">
+        <div class="col s12 m8 l9"> <!-- Note that "m8 l9" was added -->
+          <!-- Teal page content
+  
+                This content will be:
+            9-columns-wide on large screens,
+            8-columns-wide on medium screens,
+            12-columns-wide on small screens  -->
+  
+        </div>
+  
+      </div>
+            
+    <!-- split into 2 sections: searchbars and main content -->
+    <!-- <div class="section row">
+        
+        <div class="col s3 grey lighten-2 search-container">
+            -->
+            <!-- searchbars -->
+            
+
+            <!--  -->
+
+            <!-- Link to My Recipes page -->
+            <!-- <a href="./myrecipes.html"><button>My Recipes</button></a>
+        </div>
+  
+        <div class="col s9 teal lighten-2">
             <main id="display-recipe"></main>
         </div>
   
-    </div>
+    </div> -->
 
     <script src="./assets/js/homepage.js"></script>
 </body>
