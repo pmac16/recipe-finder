@@ -84,6 +84,9 @@ var mealDisplay = function (data) {
    
     displayRecipeEl.appendChild(singleDisplayEl);
 };
+
+
+
 /* EVENT LISTENERS */
 mealFormEl.addEventListener("submit", mealFormSubmitHandler);
 /* MAIN CODE */
