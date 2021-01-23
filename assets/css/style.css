@@ -4,7 +4,7 @@
 
 .hero {
     padding: 20px 35px;
-    background-image: url("/recipe3.png");
+    background-image: url("./../images/recipe3.png");
     height: 200px;
 }
 
