@@ -45,7 +45,6 @@ var mealAPIQuery = function (ingredient) {
 var displayMeals = function (data) {
     // clear displayRecipeEl
     displayRecipeEl.innerHTML = "";
-
     // stop the loop when ten meals are displayed, or we have displayed all meals
     for (var i = 0; i < 10 && i < data.meals.length; i++) {
         // grab the name and picture of the current meal
@@ -69,21 +68,31 @@ var mealDisplay = function (data) {
     var mealName = data.meals[0].strMeal;
     var mealPic = data.meals[0].strMealThumb;
     var mealLink = data.meals[0].strSource; // certain meals don't have one
-
-    var singleDisplayEl = document.createElement("div");
-
-    var nameEl = document.createElement("a");
-    nameEl.textContent = mealName;
     
-    if (mealLink) {
-        nameEl.setAttribute("href", mealLink);
-    }
-
+    // ul class
+    var singleDisplayEl = document.createElement("a");
+    singleDisplayEl.className="collection-item avatar valign-wrapper"
+    singleDisplayEl.setAttribute("href", mealLink);
+    // li class
+    var nameEl = document.createElement("span");
+    nameEl.className="title title-change valign-wrapper";
+    nameEl.textContent= mealName
+    
+    //img
     var picEl = document.createElement("img");
     picEl.setAttribute("src", mealPic);
+    picEl.style="width:100px;height:100px";
+    picEl.classList ="circle portrait";
+    // save button
+    var saveButton = document.createElement("button");
+    saveButton.classList = "secondary-content"
+    saveButton.innerHTML="<i class='material-icons'>grade</i>"
 
-    singleDisplayEl.appendChild(nameEl);
     singleDisplayEl.appendChild(picEl);
+    singleDisplayEl.appendChild(nameEl); 
+    singleDisplayEl.appendChild(saveButton)
+    
+   
     displayRecipeEl.appendChild(singleDisplayEl);
 };
 
@@ -189,5 +198,12 @@ drinkFormEl.addEventListener("submit", drinkFormSubmitHandler);
 
 
 
+    // set the mealPic size
 
+    
+
+
+
+/* EVENT LISTENERS */
+mealFormEl.addEventListener("submit", mealFormSubmitHandler);
 /* MAIN CODE */

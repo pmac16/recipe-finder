@@ -1,3 +1,73 @@
 * {
     box-sizing: border-box;
 }
+
+.hero {
+    padding: 20px 35px;
+    background-image: url("/recipe3.png");
+    height: 200px;
+}
+
+h1 {
+    
+    font-family: 'Roboto Slab', serif;
+    /* background-color:#800020 ; */
+    font-size: 100px;
+    color: #800020;
+    
+}
+
+body {
+    font-family: 'ABeeZee', sans-serif;   
+}
+
+/*  search section */
+.search{
+    margin: 10pX auto;
+    padding: 20px;
+}
+
+/* display section */
+/* avatar section */
+
+.collection .collection-item.avatar .title {
+    font-size: 32px;
+    color: black;
+    /* padding: 2px; */
+    /* need to figure out how to align it cetner */
+}
+  
+.circle {
+    border: 2px solid black;
+}
+
+.collection .collection-item.avatar .secondary-content {
+    position: absolute;
+    top: 40px;
+    right: 16px;
+   
+}
+
+.secondary-content {
+    color: #800020  ;
+}
+
+.collection .collection-item.avatar {
+    min-height: 120px;
+    padding-left: 150px;
+    text-align: left;
+}
+
+.collection .collection-item.avatar .title {
+    padding-top: 40px;
+}
+
+.home-button {
+    background-color: #800020; 
+    float:right;
+    margin: 10px;
+}
+
+.home-button:hover {
+    background-color: gray;
+}

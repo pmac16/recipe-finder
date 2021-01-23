@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" 
     integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" 
     crossorigin="anonymous" />
@@ -16,14 +18,41 @@
 
     <!-- header -->
     <header>
-        <h1>My Recipes</h1>
+        <h1 class="center-align">Saved Recipes
+        </h1>
     </header>
 
+    <section class="hero"></section>
+
     <!-- list of recipes -->
-    <ul id="recipe-list"></ul>
+    <!-- Search and My Recipe -->
+    <main>
+        <ul id="recipe-list"></ul>
+        <p>hello</p>
+    </main>
+
+    <!-- dynamic styling references -->
+    <!-- <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/office.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+          <p><a href="#">This is a link</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+          <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        </div>
+      </div> -->
+    
+    <footer>
+        <a href="index.html" class="home-button btn-floating btn-large waves-effect waves-light"><i class="material-icons">home</i></a> 
+    </footer>
+    
 
     <!-- Link back to main page -->
-    <a href="./index.html"><button>Back</button></a>
+    
 
     <script src="./assets/js/myrecipes.js"></script>
 </body>
