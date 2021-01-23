@@ -2,6 +2,8 @@
 var displayRecipeEl = document.querySelector("#display-recipe");
 var mealFormEl = document.querySelector("#food-form");
 var mealInputEl = document.querySelector("#meal-search");
+var drinkFormEl = document.querySelector("#drink-form");
+var drinkInputEl = document.querySelector("#drink-search");
 
 
 /* FUNCTIONS */
@@ -98,13 +100,6 @@ var mealDisplay = function (data) {
 
 
 //Drinks section//
-
-/* GLOBAL VARIABLES */
-var drinkFormEl = document.querySelector("#drink-form");
-console.log(drinkFormEl)
-var drinkInputEl = document.querySelector("#drink-search");
-
-/* FUNCTIONS */
 // read the value in the input field of drinkFormEl and make an API query
 var drinkFormSubmitHandler = function (event) {
     
@@ -192,18 +187,10 @@ var drinkDisplay = function (data) {
     displayRecipeEl.appendChild(singleDisplayEl);
 };
 
+
 /* EVENT LISTENERS */
 mealFormEl.addEventListener("submit", mealFormSubmitHandler);
 drinkFormEl.addEventListener("submit", drinkFormSubmitHandler);
 
 
-
-    // set the mealPic size
-
-    
-
-
-
-/* EVENT LISTENERS */
-mealFormEl.addEventListener("submit", mealFormSubmitHandler);
 /* MAIN CODE */
