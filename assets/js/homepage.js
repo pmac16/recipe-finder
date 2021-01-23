@@ -60,17 +60,17 @@ var mealDisplay = function (data) {
     
     // ul class
     var singleDisplayEl = document.createElement("a");
-    singleDisplayEl.className="collection-item avatar"
+    singleDisplayEl.className="collection-item avatar valign-wrapper"
     singleDisplayEl.setAttribute("href", mealLink);
     // li class
     var nameEl = document.createElement("span");
-    nameEl.className="title title-change";
+    nameEl.className="title title-change valign-wrapper";
     nameEl.textContent= mealName
     
     //img
     var picEl = document.createElement("img");
     picEl.setAttribute("src", mealPic);
-    picEl.style="width:80px;height:80px";
+    picEl.style="width:100px;height:100px";
     picEl.classList ="circle portrait";
     // save button
     var saveButton = document.createElement("button");
