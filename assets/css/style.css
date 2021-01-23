@@ -1,28 +1,50 @@
 * {
     box-sizing: border-box;
-    font-family: 'ABeeZee', sans-serif;
+}
+
+
+.hero {
+    padding: 20px 35px;
+    background-image: url("/recipe3.png");
+    height: 200px;
+}
+
+h1 {
+    
+    font-family: 'Roboto Slab', serif;
+    /* background-color:#800020 ; */
+    font-size: 100px;
+    color: #800020;
     
 }
 
-
-/* body {
-    margin: 0;
-    padding: 0;
-} */
-
-/* header {
-    padding: 0 0 50px 0;
-    margin: 20px;
-} */
-
-h1 {
-    margin: 0;
-    padding: 0px;
+body {
+    font-family: 'ABeeZee', sans-serif;   
 }
 
 .search{
-    margin: 5px auto;
+    margin: 10pX auto;
     padding: 10px;
 }
 
- 
+.collection .collection-item.avatar .title {
+    font-size: 40px;
+    color: black;
+    padding: 2px;
+    /* need to figure out how to align it cetner */
+}
+  
+
+.circle {
+    border: 2px solid black;
+}
+
+.secondary-content {
+    color: #800020  ;
+}
+
+.collection .collection-item.avatar {
+    min-height: 100px;
+    padding-left: 100px;
+    position: relative;
+}

@@ -10,6 +10,9 @@
         crossorigin="anonymous" 
     />
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css" />
@@ -19,25 +22,28 @@
 
 <body>
     <!-- header bar with title name -->
-    <header class="red lighten-2">
-        <h1 class="center-align">Recipe Finder</h1>
+    <header>
+        <h1 class="center-align">RECIPE FINDER
+        </h1>
     </header>
+
+    <section class="hero"></section>
 
     <!-- Search and My Recipe -->
     <div class="row">
         <!-- Search -->
-        <div class="col s12 m4 l3 grey lighten-2"> 
+        <div class="col s12 m4 l3 grey lighten-2 search"> 
             <!-- Search bar for food -->
             <div class="row search">
                 <form class="col s12" id="food-form">
                     <div class="row">
                         <h5>Search for a Meal:</h5>
                         <div class="input-field col s6">
-                            <label for="meal-search">Type an Ingredient!</label>
-                            <input id="meal-search" type="text" class="validate">
+                            
+                            <input id="meal-search" type="text" class="validate" placeholder="Type an ingredient!">
                         </div>
                         <div class="input-field col s6">
-                            <button class="btn" type="submit" name="action">
+                            <button class="btn hoverable blue-grey lighten-2" type="submit" name="action">
                                 <i class="material-icons right">search</i>
                               </button>
                         </div>
@@ -50,45 +56,33 @@
                     <div class="row">
                         <h5>Search for a Drink:</h5>
                         <div class="input-field col s6">
-                            <label for="drink-search">Type an Ingredient!</label>
-                            <input id="drink-search" type="text" class="validate">
+                            
+                            <input id="drink-search" type="text" class="validate" placeholder="Type an ingredient!">
                         </div>
                         <div class="input-field col s6">
-                            <button class="btn" type="submit" name="action">
+                            <button class="btn hoverable blue-grey lighten-2" type="submit" name="action">
                                 <i class="material-icons right">search</i>
                               </button>
                         </div>
                     </div>
                 </form>
             </div>
+            <!-- Link for saved recipes -->
+            <div class="row center-align">
+                <a href="myrecipes.html">
+                    <button class="btn blue-grey lighten-2" type="submit" name="action">My Recipes
+                    <i class="material-icons hoverable">book</i>
+                  </button></a>
+            </div>
         </div>
         
         <!-- Section for recipe display -->
-        <div class="col s12 m8 l9"> 
+        <div class="col s12 m8 l9 collection search" id="display-recipe"> 
   
         </div>
   
     </div>
-            
-    <!-- split into 2 sections: searchbars and main content -->
-    <!-- <div class="section row">
-        
-        <div class="col s3 grey lighten-2 search-container">
-            -->
-            <!-- searchbars -->
-            
-
-            <!--  -->
-
-            <!-- Link to My Recipes page -->
-            <!-- <a href="./myrecipes.html"><button>My Recipes</button></a>
-        </div>
-  
-        <div class="col s9 teal lighten-2">
-            <main id="display-recipe"></main>
-        </div>
-  
-    </div> -->
+ 
 
     <script src="./assets/js/homepage.js"></script>
 </body>
