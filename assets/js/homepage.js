@@ -232,6 +232,7 @@ var includesRecipe = function (recipe, arr) {
     return false;
 };
 
+
 /* EVENT LISTENERS */
 mealFormEl.addEventListener("submit", mealFormSubmitHandler);
 drinkFormEl.addEventListener("submit", drinkFormSubmitHandler);
