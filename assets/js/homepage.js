@@ -5,6 +5,9 @@ var mealInputEl = document.querySelector("#meal-search");
 var drinkFormEl = document.querySelector("#drink-form");
 var drinkInputEl = document.querySelector("#drink-search");
 
+// information about the recipes currently displayed for easy access in localStorage functions
+var displayData = [];
+
 
 /* FUNCTIONS */
 // read the value in the input field of mealFormEl and make an API query
@@ -46,8 +49,10 @@ var mealAPIQuery = function (ingredient) {
 // note that the mealdb filter endpoint DOES NOT include the recipes of each meal.
 // we need to do another query on each of these meals.
 var displayMeals = function (data) {
-    // clear displayRecipeEl
+    // clear displayRecipeEl and displayData
     displayRecipeEl.innerHTML = "";
+    displayData = [];
+    
     // stop the loop when ten meals are displayed, or we have displayed all meals
     for (var i = 0; i < 10 && i < data.meals.length; i++) {
         // grab the name and picture of the current meal
@@ -75,6 +80,7 @@ var mealDisplay = function (data) {
     //create display for each recipe
     var singleDisplayEl = document.createElement("li");
     singleDisplayEl.className = "collection-item avatar valign-wrapper";
+    singleDisplayEl.id = "meal-container";
     
     //link recipe to recipe name
     var nameEl = document.createElement("a");
@@ -100,8 +106,11 @@ var mealDisplay = function (data) {
     singleDisplayEl.appendChild(picEl);
     singleDisplayEl.appendChild(nameEl); 
     singleDisplayEl.appendChild(saveButton);
-   
     displayRecipeEl.appendChild(singleDisplayEl);
+
+    // add this recipe to displayData as an object
+    displayData.push({recipeType: "meal", name: mealName, imgUrl: mealPic,
+                      recipe: null, ingredients: null, link: mealLink});
 };
 
 
@@ -153,8 +162,9 @@ var drinkAPIQuery = function (ingredient) {
 // note that the drinkdb filter endpoint DOES NOT include the recipes of each drink.
 // we need to do another query on each of these meals.
 var displayDrinks = function (data) {
-    // clear displayRecipeEl
+    // clear displayRecipeEl and displayData
     displayRecipeEl.innerHTML = "";
+    displayData = [];
 
     // stop the loop when ten drinks are displayed, or we have displayed all drinks
     for (var i = 0; i < 10 && i < data.drinks.length; i++) {
@@ -183,6 +193,7 @@ var drinkDisplay = function (data) {
     //create display for each recipe
     var singleDisplayEl = document.createElement("li");
     singleDisplayEl.className = "collection-item avatar valign-wrapper";
+    singleDisplayEl.id = "drink-container";
     
     //display recipe image 
     var picEl = document.createElement("img");
@@ -211,30 +222,17 @@ var drinkDisplay = function (data) {
     singleDisplayEl.appendChild(instructionsEl);
     singleDisplayEl.appendChild(saveButton);
     displayRecipeEl.appendChild(singleDisplayEl);
-};
 
-
-// call this version of saveRecipe for drinks
-var saveRecipe = function (recipeType, str, imgUrl, recipe, ingredients) {
-    saveRecipe(recipeType, str, imgUrl, recipe, ingredients, null);
+    // add this recipe to displayData as an object
+    displayData.push({recipeType: "drink", name: drinkName, imgUrl: drinkPic,
+                      recipe: drinkRecipe, ingredients: null, link: null});
 };
 
 
 // favoriting a recipe saves it to localStorage
-var saveRecipe = function (recipeType, str, imgUrl, recipe, ingredients, link) {
+var saveRecipe = function (recipeObj) {
     // get the current list of favorite recipes from localStorage
     var savedRecipes = JSON.parse(localStorage.getItem("favorites")) || [];
-
-    // make a recipe object to add to localstorage
-    var recipeObj = {
-        recipeType: recipeType,
-        name: str,
-        imgUrl: imgUrl,
-        recipe: recipe,
-        ingredients: ingredients,
-        link: link
-    };
-
 
     // add recipeObj to savedRecipes and push back onto localStorage
     // do this ONLY if recipeObj isn't already on localStorage
@@ -259,9 +257,32 @@ var includesRecipe = function (recipe, arr) {
 };
 
 
+// when a save button is clicked, push the necessary data to localStorage
+var clickSaveHandler = function (event) {
+    // if closest() finds a button, we've hit the save button
+    if (event.target.closest("button")) {
+        // grab the li this button is part of
+        var liEl = event.target.closest("li");
+
+        // var recipeType, str, img, recipe, ingredients, link;
+
+        // // determine if it was a meal or drink
+        // if (liEl.id === "meal-container") {
+        //     recipeType = "meal";
+        //     console.log(liEl.querySelector("a").textContent);
+        // }
+        // else {
+        //     recipeType = "drink";
+        // }
+        
+        // // find its name, imgUrl, etc.
+    }
+};
+
 /* EVENT LISTENERS */
 mealFormEl.addEventListener("submit", mealFormSubmitHandler);
 drinkFormEl.addEventListener("submit", drinkFormSubmitHandler);
+displayRecipeEl.addEventListener("click", clickSaveHandler);
 
 
 /* MAIN CODE */

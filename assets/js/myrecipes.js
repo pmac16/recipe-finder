@@ -9,7 +9,6 @@
     link: "link to the original recipe" (for drinks, this will be null!)
 }
 */
-
 favoriteRecipes = [];
 recipeListEl = document.querySelector("#recipe-list");
 
@@ -26,6 +25,7 @@ var saveRecipes = function () {
 
 
 /* EVENT LISTENERS */
+
 
 /* MAIN CODE */
 loadRecipes();
