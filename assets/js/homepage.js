@@ -85,7 +85,7 @@ var mealDisplay = function (data) {
     var picEl = document.createElement("img");
     picEl.setAttribute("src", mealPic);
     picEl.style="width:100px;height:100px";
-    picEl.classList ="circle portrait";
+    picEl.classList ="circle portrait responsive-img";
 
     // save button
     var saveButton = document.createElement("button");
@@ -181,7 +181,7 @@ var drinkDisplay = function (data) {
     var picEl = document.createElement("img");
     picEl.setAttribute("src", drinkPic);
     picEl.style="width:100px;height:100px";
-    picEl.classList ="circle portrait";
+    picEl.classList ="circle portrait responsiv-o";
 
     //display recipe name
     var nameEl = document.createElement("span");
@@ -197,7 +197,7 @@ var drinkDisplay = function (data) {
 
     //save button
      // save button
-     var saveButton = document.createElement("button");
+     var saveBugtton = document.createElement("button");
      saveButton.classList = "secondary-content"
      saveButton.innerHTML="<i class='material-icons'>grade</i>"
  

@@ -14,7 +14,6 @@
     <title>Recipe Finder | My Recipes</title>
 </head>
 <body>
-    <!-- TODO: draw up layout of this page? -->
 
     <!-- header -->
     <header>
@@ -24,12 +23,52 @@
 
     <section class="hero"></section>
 
-    <!-- list of recipes -->
+
     <!-- Search and My Recipe -->
-    <main>
-        <ul id="recipe-list"></ul>
-        <p>hello</p>
-    </main>
+    <div class="row">
+        <!-- Search -->
+        <div class="col s12 m4 l3 grey lighten-2 search"> 
+            <!-- Search bar for food -->
+            <div class="row search">
+                <form class="col s12" id="food-form">
+                    <div class="row">
+                        <h5>Search for a Meal:</h5>
+                        <div class="input-field col s6">
+                            
+                            <input id="meal-search" type="text" class="validate" placeholder="Type an ingredient!">
+                        </div>
+                        <div class="input-field col s6">
+                            <button class="btn hoverable blue-grey lighten-2" type="submit" name="action">
+                                <i class="material-icons right">search</i>
+                              </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Search bar for drinks -->
+            <div class="row search">
+                <form class="col s12" id="drink-form">
+                    <div class="row">
+                        <h5>Search for a Drink:</h5>
+                        <div class="input-field col s6">
+                            
+                            <input id="drink-search" type="text" class="validate" placeholder="Type an ingredient!">
+                        </div>
+                        <div class="input-field col s6">
+                            <button class="btn hoverable blue-grey lighten-2" type="submit" name="action">
+                                <i class="material-icons right">search</i>
+                              </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+        <!-- favorites recipe display -->
+        <div class="col s12 m8 l9 collection search" id="display-recipe"> 
+  
+        </div>
+  
+    </div>
 
     <!-- dynamic styling references -->
     <!-- <div class="card">
@@ -47,7 +86,7 @@
       </div> -->
     
     <footer>
-        <a href="index.html" class="home-button btn-floating btn-large waves-effect waves-light"><i class="material-icons">home</i></a> 
+      <a href="index.html" class="btn-floating btn-large waves-effect waves-light home-button"><i class="material-icons">home</i></a> 
     </footer>
     
 

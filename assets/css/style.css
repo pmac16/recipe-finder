@@ -2,10 +2,13 @@
     box-sizing: border-box;
 }
 
+
+
 .hero {
     padding: 20px 35px;
     background-image: url("./../images/recipe3.png");
     height: 200px;
+   
 }
 
 a:hover{
@@ -70,7 +73,7 @@ body {
 .home-button {
     background-color: #800020; 
     float:right;
-    margin: 10px;
+    margin: 100px;
 }
 
 .home-button:hover {
