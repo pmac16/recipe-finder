@@ -2,6 +2,7 @@
 /* each element in favoriteRecipes is an object that looks like this:
 {
     recipeType: "meal" or "drink",
+    id: ##### (the id number of this recipe in the API),
     name: "name of recipe",
     imgUrl: "url of the strMealThumb/strDrinkThumb",
     recipe: "the strInstructions",

@@ -52,7 +52,7 @@ var displayMeals = function (data) {
     // clear displayRecipeEl and displayData
     displayRecipeEl.innerHTML = "";
     displayData = [];
-    
+
     // stop the loop when ten meals are displayed, or we have displayed all meals
     for (var i = 0; i < 10 && i < data.meals.length; i++) {
         // grab the name and picture of the current meal
@@ -76,11 +76,13 @@ var mealDisplay = function (data) {
     var mealName = data.meals[0].strMeal;
     var mealPic = data.meals[0].strMealThumb;
     var mealLink = data.meals[0].strSource; // certain meals don't have one
+    var id = data.meals[0].idMeal;
     
     //create display for each recipe
     var singleDisplayEl = document.createElement("li");
     singleDisplayEl.className = "collection-item avatar valign-wrapper";
     singleDisplayEl.id = "meal-container";
+    singleDisplayEl.setAttribute('data-id', id);
     
     //link recipe to recipe name
     var nameEl = document.createElement("a");
@@ -109,7 +111,7 @@ var mealDisplay = function (data) {
     displayRecipeEl.appendChild(singleDisplayEl);
 
     // add this recipe to displayData as an object
-    displayData.push({recipeType: "meal", name: mealName, imgUrl: mealPic,
+    displayData.push({recipeType: "meal", id: id, name: mealName, imgUrl: mealPic,
                       recipe: null, ingredients: null, link: mealLink});
 };
 
@@ -189,11 +191,13 @@ var drinkDisplay = function (data) {
     var drinkPic = data.drinks[0].strDrinkThumb;
     var drinkRecipe = data.drinks[0].strInstructions;
     //var drinkLink = data.drinks[0].strSource; // certain drinks don't have one
+    var id = data.drinks[0].idDrink;
 
     //create display for each recipe
     var singleDisplayEl = document.createElement("li");
     singleDisplayEl.className = "collection-item avatar valign-wrapper";
     singleDisplayEl.id = "drink-container";
+    singleDisplayEl.setAttribute('data-id', id);
     
     //display recipe image 
     var picEl = document.createElement("img");
@@ -215,7 +219,6 @@ var drinkDisplay = function (data) {
     var saveButton = document.createElement("button");
     saveButton.classList = "secondary-content";
     saveButton.innerHTML = "<i class='material-icons'>grade</i>";
- 
 
     singleDisplayEl.appendChild(nameEl);
     singleDisplayEl.appendChild(picEl);
@@ -224,7 +227,7 @@ var drinkDisplay = function (data) {
     displayRecipeEl.appendChild(singleDisplayEl);
 
     // add this recipe to displayData as an object
-    displayData.push({recipeType: "drink", name: drinkName, imgUrl: drinkPic,
+    displayData.push({recipeType: "drink", id: id, name: drinkName, imgUrl: drinkPic,
                       recipe: drinkRecipe, ingredients: null, link: null});
 };
 
@@ -261,21 +264,16 @@ var includesRecipe = function (recipe, arr) {
 var clickSaveHandler = function (event) {
     // if closest() finds a button, we've hit the save button
     if (event.target.closest("button")) {
-        // grab the li this button is part of
-        var liEl = event.target.closest("li");
+        // grab the li this button is part of, and its data-id
+        var recipeEl = event.target.closest("li");
+        var recipeElId = recipeEl.getAttribute("data-id");
 
-        // var recipeType, str, img, recipe, ingredients, link;
+        // find its corresponding element in displayData using the filter() function
+        var recipeObj = displayData.filter(function (obj) {
+            return obj.id === recipeElId;
+        });
 
-        // // determine if it was a meal or drink
-        // if (liEl.id === "meal-container") {
-        //     recipeType = "meal";
-        //     console.log(liEl.querySelector("a").textContent);
-        // }
-        // else {
-        //     recipeType = "drink";
-        // }
-        
-        // // find its name, imgUrl, etc.
+        saveRecipe(recipeObj);
     }
 };
 
