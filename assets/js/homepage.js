@@ -12,6 +12,7 @@ var mealFormSubmitHandler = function (event) {
     // prevent default and grab the text from the input
     event.preventDefault();
     var input = mealInputEl.value.trim();
+    mealInputEl.value = "";
 
     // replace all spaces with underscores
     input = input.split(' ').join('_');
@@ -73,29 +74,32 @@ var mealDisplay = function (data) {
     
     //create display for each recipe
     var singleDisplayEl = document.createElement("li");
-    singleDisplayEl.className="collection-item avatar valign-wrapper"
+    singleDisplayEl.className = "collection-item avatar valign-wrapper";
     
-   //link recipe to recipe name
+    //link recipe to recipe name
     var nameEl = document.createElement("a");
-    nameEl.className="title title-change valign-wrapper";
-    nameEl.textContent= mealName
-    nameEl.setAttribute("href", mealLink);
+    nameEl.className = "title title-change valign-wrapper";
+    nameEl.textContent = mealName;
+
+    // if mealLink exists, link to it.
+    if (mealLink) {
+        nameEl.setAttribute("href", mealLink);
+    }
 
     //img of recipe
     var picEl = document.createElement("img");
     picEl.setAttribute("src", mealPic);
-    picEl.style="width:100px;height:100px";
-    picEl.classList ="circle portrait responsive-img";
+    picEl.style = "width:100px;height:100px";
+    picEl.classList = "circle portrait responsive-img";
 
     // save button
     var saveButton = document.createElement("button");
-    saveButton.classList = "secondary-content"
-    saveButton.innerHTML="<i class='material-icons'>grade</i>"
+    saveButton.classList = "secondary-content";
+    saveButton.innerHTML = "<i class='material-icons'>grade</i>";
 
     singleDisplayEl.appendChild(picEl);
     singleDisplayEl.appendChild(nameEl); 
-    singleDisplayEl.appendChild(saveButton)
-    
+    singleDisplayEl.appendChild(saveButton);
    
     displayRecipeEl.appendChild(singleDisplayEl);
 };
@@ -110,6 +114,9 @@ var drinkFormSubmitHandler = function (event) {
     
     var input = drinkInputEl.value.trim();
     console.log(input)
+
+    drinkInputEl.value = "";
+
     // replace all spaces with underscores
     input = input.split(' ').join('_');
 
@@ -135,7 +142,7 @@ var drinkAPIQuery = function (ingredient) {
            // response.json().then(function (data) {
                 // if there is at least one drink in data, display the drink(s).
                 if (data.drinks) {//
-                   displayDrinks(data)
+                   displayDrinks(data);
                 }
            // });
         //}
@@ -175,31 +182,28 @@ var drinkDisplay = function (data) {
 
     //create display for each recipe
     var singleDisplayEl = document.createElement("li");
-    singleDisplayEl.className="collection-item avatar valign-wrapper"
+    singleDisplayEl.className = "collection-item avatar valign-wrapper";
     
     //display recipe image 
     var picEl = document.createElement("img");
     picEl.setAttribute("src", drinkPic);
-    picEl.style="width:100px;height:100px";
-    picEl.classList ="circle portrait responsiv-o";
+    picEl.style = "width:100px;height:100px";
+    picEl.classList = "circle portrait responsiv-o";
 
     //display recipe name
     var nameEl = document.createElement("span");
-    nameEl.className="title";
-    nameEl.textContent= drinkName
-
-   
+    nameEl.className = "title";
+    nameEl.textContent = drinkName;
 
     //display recipe instructions"
     var instructionsEl = document.createElement("p");
-    instructionsEl.className="p instructions";
-    instructionsEl.textContent= drinkRecipe;
+    instructionsEl.className = "p instructions";
+    instructionsEl.textContent = drinkRecipe;
 
-    //save button
-     // save button
-     var saveBugtton = document.createElement("button");
-     saveButton.classList = "secondary-content"
-     saveButton.innerHTML="<i class='material-icons'>grade</i>"
+    // save button
+    var saveButton = document.createElement("button");
+    saveButton.classList = "secondary-content";
+    saveButton.innerHTML = "<i class='material-icons'>grade</i>";
  
 
     singleDisplayEl.appendChild(nameEl);
