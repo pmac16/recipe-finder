@@ -214,6 +214,51 @@ var drinkDisplay = function (data) {
 };
 
 
+// call this version of saveRecipe for drinks
+var saveRecipe = function (recipeType, str, imgUrl, recipe, ingredients) {
+    saveRecipe(recipeType, str, imgUrl, recipe, ingredients, null);
+};
+
+
+// favoriting a recipe saves it to localStorage
+var saveRecipe = function (recipeType, str, imgUrl, recipe, ingredients, link) {
+    // get the current list of favorite recipes from localStorage
+    var savedRecipes = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    // make a recipe object to add to localstorage
+    var recipeObj = {
+        recipeType: recipeType,
+        name: str,
+        imgUrl: imgUrl,
+        recipe: recipe,
+        ingredients: ingredients,
+        link: link
+    };
+
+
+    // add recipeObj to savedRecipes and push back onto localStorage
+    // do this ONLY if recipeObj isn't already on localStorage
+    if (!includesRecipe(recipeObj, savedRecipes)) {
+        savedRecipes.push(recipeObj);
+        localStorage.setItem("favorites", JSON.stringify(savedRecipes));
+    }
+    else {
+        console.log("already here");
+    }
+};
+
+
+// helper function for saveRecipe. Return true if a duplicate recipe in the array is found.
+var includesRecipe = function (recipe, arr) {
+    for (var i = 0; i < arr.length; i++) {
+        if ( JSON.stringify(recipe) === JSON.stringify(arr[i]) ) {
+            return true;
+        }
+    }
+    return false;
+};
+
+
 /* EVENT LISTENERS */
 mealFormEl.addEventListener("submit", mealFormSubmitHandler);
 drinkFormEl.addEventListener("submit", drinkFormSubmitHandler);
