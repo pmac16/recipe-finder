@@ -71,20 +71,22 @@ var mealDisplay = function (data) {
     var mealPic = data.meals[0].strMealThumb;
     var mealLink = data.meals[0].strSource; // certain meals don't have one
     
-    // ul class
-    var singleDisplayEl = document.createElement("a");
+    //create display for each recipe
+    var singleDisplayEl = document.createElement("li");
     singleDisplayEl.className="collection-item avatar valign-wrapper"
-    singleDisplayEl.setAttribute("href", mealLink);
-    // li class
-    var nameEl = document.createElement("span");
+    
+   //link recipe to recipe name
+    var nameEl = document.createElement("a");
     nameEl.className="title title-change valign-wrapper";
     nameEl.textContent= mealName
-    
-    //img
+    nameEl.setAttribute("href", mealLink);
+
+    //img of recipe
     var picEl = document.createElement("img");
     picEl.setAttribute("src", mealPic);
     picEl.style="width:100px;height:100px";
     picEl.classList ="circle portrait";
+
     // save button
     var saveButton = document.createElement("button");
     saveButton.classList = "secondary-content"
@@ -168,22 +170,42 @@ var displayDrinks = function (data) {
 var drinkDisplay = function (data) {
     var drinkName = data.drinks[0].strDrink;
     var drinkPic = data.drinks[0].strDrinkThumb;
+    var drinkRecipe = data.drinks[0].strInstructions;
     //var drinkLink = data.drinks[0].strSource; // certain drinks don't have one
 
-    var singleDisplayEl = document.createElement("div");
-
-    var nameEl = document.createElement("a");
-    nameEl.textContent = drinkName;
+    //create display for each recipe
+    var singleDisplayEl = document.createElement("li");
+    singleDisplayEl.className="collection-item avatar valign-wrapper"
     
-    //if (drinkLink) {
-    //    nameEl.setAttribute("href", drinkLink);
-    //}
-
+    //display recipe image 
     var picEl = document.createElement("img");
     picEl.setAttribute("src", drinkPic);
+    picEl.style="width:100px;height:100px";
+    picEl.classList ="circle portrait";
+
+    //display recipe name
+    var nameEl = document.createElement("span");
+    nameEl.className="title";
+    nameEl.textContent= drinkName
+
+   
+
+    //display recipe instructions"
+    var instructionsEl = document.createElement("p");
+    instructionsEl.className="p instructions";
+    instructionsEl.textContent= drinkRecipe;
+
+    //save button
+     // save button
+     var saveButton = document.createElement("button");
+     saveButton.classList = "secondary-content"
+     saveButton.innerHTML="<i class='material-icons'>grade</i>"
+ 
 
     singleDisplayEl.appendChild(nameEl);
     singleDisplayEl.appendChild(picEl);
+    singleDisplayEl.appendChild(instructionsEl);
+    singleDisplayEl.appendChild(saveButton);
     displayRecipeEl.appendChild(singleDisplayEl);
 };
 

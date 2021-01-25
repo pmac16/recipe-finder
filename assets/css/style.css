@@ -8,6 +8,10 @@
     height: 200px;
 }
 
+a:hover{
+    color:teal;
+}
+
 h1 {
     
     font-family: 'Roboto Slab', serif;
@@ -56,6 +60,7 @@ body {
     min-height: 120px;
     padding-left: 150px;
     text-align: left;
+    display: block;
 }
 
 .collection .collection-item.avatar .title {
@@ -70,4 +75,12 @@ body {
 
 .home-button:hover {
     background-color: gray;
+}
+
+p {
+    display: block;
+}
+
+.instructions {
+    padding: 5px;
 }
