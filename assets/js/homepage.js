@@ -289,7 +289,7 @@ var clickSaveHandler = function (event) {
         // find its corresponding element in displayData using the filter() function
         var recipeObj = displayData.filter(function (obj) {
             return obj.id === recipeElId;
-        });
+        })[0];
 
         saveRecipe(recipeObj);
     }
