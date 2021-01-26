@@ -12,7 +12,7 @@
 */
 var favoriteRecipes = [];
 // the two elements below will need to be hooked up to real ids
-//var dropdownEl = document.querySelector("#recipe-filter");
+var dropdownEl = document.querySelector("#recipe-filter");
 var displayFavoritesEl = document.querySelector("#display-favorites");
 
 
@@ -98,7 +98,7 @@ var recipeDisplay = function (recipeObj) {
 
 
 /* EVENT LISTENERS */
-//dropdownEl.addEventListener("change", filterRecipes);
+dropdownEl.addEventListener("change", filterRecipes);
 
 
 /* MAIN CODE */
