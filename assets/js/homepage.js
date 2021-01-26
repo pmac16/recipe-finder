@@ -17,6 +17,7 @@ var mealFormSubmitHandler = function (event) {
     // replace all spaces with underscores
     input = input.split(' ').join('_');
 
+    
     // if the input isn't empty, use it to query the mealdb API
     if (input) {
         mealAPIQuery(input);
@@ -28,16 +29,28 @@ var mealFormSubmitHandler = function (event) {
 var mealAPIQuery = function (ingredient) {
     var apiUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient;
 
-    fetch(apiUrl).then(function (response) {
+    fetch(apiUrl)
+    .then(function (response) {
         // if the fetch worked, we now have response json.
-        if (response.ok) {
-            response.json().then(function (data) {
+        return response.json();
+        })
+        .then (function (data) {
+            console.log(data)    
+
+            // if there are no meals in data, display message
+
+            if (data.meals === 0) {
+                InputIdPlaceholder ="This Ingredient does not exist.  Please choose a different ingredient";
+                return;
+            }
+            
                 // if there is at least one meal in data, display the meal(s).
                 if (data.meals) {
                     displayMeals(data);
                 }
-            });
-        }
+                
+                
+
     });
 };
 
@@ -131,6 +144,7 @@ var drinkAPIQuery = function (ingredient) {
     console.log(ingredient)
     var apiUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredient;
     console.log(apiUrl)
+
     fetch(apiUrl)
     .then(function (response) {
         return response.json();
