@@ -197,7 +197,7 @@ var drinkDisplay = function (data) {
 
     //save button
      // save button
-     var saveBugtton = document.createElement("button");
+     var saveButton = document.createElement("button");
      saveButton.classList = "secondary-content"
      saveButton.innerHTML="<i class='material-icons'>grade</i>"
  
