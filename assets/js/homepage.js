@@ -1,9 +1,11 @@
 /* GLOBAL VARIABLES */
 var displayRecipeEl = document.querySelector("#display-recipe");
+var searchTitleEl = document.querySelector("#search-title");
 var mealFormEl = document.querySelector("#food-form");
 var mealInputEl = document.querySelector("#meal-search");
 var drinkFormEl = document.querySelector("#drink-form");
 var drinkInputEl = document.querySelector("#drink-search");
+
 
 
 /* FUNCTIONS */
@@ -27,30 +29,29 @@ var mealFormSubmitHandler = function (event) {
 
 // search the mealdb API by this ingredient, then display the results
 var mealAPIQuery = function (ingredient) {
+    // clear the displayRecipeEl and its title
+    displayRecipeEl.innerHTML = "";
+    searchTitleEl.textContent = "";
+
     var apiUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient;
 
     fetch(apiUrl)
     .then(function (response) {
         // if the fetch worked, we now have response json.
-        return response.json();
-        })
-        .then (function (data) {
-            console.log(data)    
-
-            // if there are no meals in data, display message
-
-            if (data.meals === 0) {
-                InputIdPlaceholder ="This Ingredient does not exist.  Please choose a different ingredient";
-                return;
-            }
-            
+        if (response.ok) {
+            response.json().then(function (data) {
+                // if there are no meals in data, display message
+                if (!data.meals) {
+                    var InputIdPlaceholder = "This Ingredient does not exist. Please choose a different ingredient";
+                    searchTitleEl.textContent = InputIdPlaceholder;
+                }
                 // if there is at least one meal in data, display the meal(s).
-                if (data.meals) {
+                else {
+                    searchTitleEl.textContent = "Displaying results for: " + ingredient.split('_').join(' ');
                     displayMeals(data);
                 }
-                
-                
-
+            });
+        }
     });
 };
 
@@ -59,8 +60,6 @@ var mealAPIQuery = function (ingredient) {
 // note that the mealdb filter endpoint DOES NOT include the recipes of each meal.
 // we need to do another query on each of these meals.
 var displayMeals = function (data) {
-    // clear displayRecipeEl
-    displayRecipeEl.innerHTML = "";
     // stop the loop when ten meals are displayed, or we have displayed all meals
     for (var i = 0; i < 10 && i < data.meals.length; i++) {
         // grab the name and picture of the current meal
@@ -97,6 +96,7 @@ var mealDisplay = function (data) {
     // if mealLink exists, link to it.
     if (mealLink) {
         nameEl.setAttribute("href", mealLink);
+        nameEl.setAttribute("target", "_blank");
     }
 
     //img of recipe
@@ -147,19 +147,21 @@ var drinkAPIQuery = function (ingredient) {
 
     fetch(apiUrl)
     .then(function (response) {
-        return response.json();
-        })
+        if (response.ok) {
+            return response.json();
+        }
+    })
     .then (function (data) {
-            console.log(data)
-        // if the fetch worked, we now have response json.
-       // if (response.ok) {
-           // response.json().then(function (data) {
-                // if there is at least one drink in data, display the drink(s).
-                if (data.drinks) {//
-                   displayDrinks(data);
-                }
-           // });
-        //}
+        // if there are no drinks in data, display message
+        if (!data.drinks) {
+            var InputIdPlaceholder = "This Ingredient does not exist. Please choose a different ingredient";
+            searchTitleEl.textContent = InputIdPlaceholder;
+        }
+        // if there is at least one drink in data, display the meal(s).
+        else {
+            searchTitleEl.textContent = "Displaying results for: " + ingredient.split('_').join(' ');
+            displayDrinks(data);
+        }
     });
 };
 
