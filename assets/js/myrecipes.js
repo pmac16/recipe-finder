@@ -11,7 +11,6 @@
 }
 */
 var favoriteRecipes = [];
-// the two elements below will need to be hooked up to real ids
 var dropdownEl = document.querySelector("#recipe-filter");
 var displayFavoritesEl = document.querySelector("#display-favorites");
 
@@ -36,8 +35,11 @@ var filterRecipes = function (event) {
 
 // display Recipes based on filter criteria
 var displayRecipes = function (filterOption) {
+    // clear old display
+    displayFavoritesEl.innerHTML = "";
+
     // if filterOption isn't "none", filter favoriteRecipes by the filter option.
-    var displayThese= []; 
+    var displayThese = []; 
     if (filterOption != "none") {
         displayThese = favoriteRecipes.filter(function (obj) {
             return obj.recipeType === filterOption;
