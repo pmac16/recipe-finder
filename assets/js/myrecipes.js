@@ -103,6 +103,14 @@ var recipeDisplay = function (recipeObj) {
 dropdownEl.addEventListener("change", filterRecipes);
 
 
+$(document).ready(function(){
+    $('select').formSelect();
+});
+      
+$(document).ready(function(){
+    $('.fixed-action-btn').floatingActionButton();
+  });
+       
 /* MAIN CODE */
 loadRecipes();
 displayRecipes("none");
