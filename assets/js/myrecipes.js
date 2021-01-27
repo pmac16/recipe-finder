@@ -56,26 +56,49 @@ var displayRecipes = function (filterOption) {
 
 // display a recipe to the page.
 var recipeDisplay = function (recipeObj) {
-    // make container div element
+    // make container div element //card
     var displayEl = document.createElement("div");
+    displayEl.className="card";
 
-    // name
-    var nameEl = document.createElement("a");
-    nameEl.textContent = recipeObj.name;
+    //make container card element
+    var nameImageEl=document.createElement("div");
+    nameImageEl.className="card-image";
 
-    // link the name to a website, if any
-    if (recipeObj.link) {
-        nameEl.setAttribute("href", recipeObj.link);
-        nameEl.setAttribute("target", "_blank");
-    }
-    
     // image 
     var picEl = document.createElement("img");
     picEl.setAttribute("src", recipeObj.imgUrl);
+    
+     // name
+     var nameEl= document.createElement("span")
+     nameEl.textContent = recipeObj.name;
+     nameEl.className="card-title";
+    
+    //div for card-action
+    var cardActionEl= document.createElement("div");
+    cardActionEl.className="card-action";
 
-    // instructions, if any
-    var instructionsEl = document.createElement("p");
-    instructionsEl.textContent = recipeObj.recipe || "";
+    // link the name to a website, if any
+    
+    var recipeEl = document.createElement("a");
+      // instructions, if any
+      var instructionsEl = document.createElement("p");
+    
+    if (recipeObj.link) {
+        
+        recipeEl.textContent = "Recipe Link";
+
+        recipeEl.setAttribute("href", recipeObj.link);
+        recipeEl.setAttribute("target", "_blank");
+    }
+    else {
+        instructionsEl.textContent = recipeObj.recipe || "";
+
+    }
+    
+   
+
+  
+    
 
     // ingredients list, if any
     var ingredientsEl = document.createElement("ul");
@@ -90,12 +113,29 @@ var recipeDisplay = function (recipeObj) {
     }
 
     // append all to displayEl and display it
-    displayEl.appendChild(nameEl);
-    displayEl.appendChild(picEl);
-    displayEl.appendChild(instructionsEl);
-    displayEl.appendChild(ingredientsEl);
+   //link append to cardActionEl
+   //cardActionEl append to display
+   //card-image appends to display
+   //image appends to card-image
+   //span appends to card-image
+   //card appends to displayel
+   //
 
-    displayFavoritesEl.appendChild(displayEl);
+   cardActionEl.appendChild(recipeEl)
+   nameImageEl.appendChild(picEl);
+   nameImageEl.appendChild(nameEl);
+   displayEl.appendChild(nameImageEl);
+  
+   displayEl.appendChild(cardActionEl);
+   displayFavoritesEl.appendChild(displayEl);
+
+
+    // displayEl.appendChild(nameEl);
+    // displayEl.appendChild(picEl);
+    // displayEl.appendChild(instructionsEl);
+    // // displayEl.appendChild(ingredientsEl);
+
+    // displayFavoritesEl.appendChild(displayEl);
 };
 
 
