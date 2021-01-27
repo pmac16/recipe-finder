@@ -2,14 +2,15 @@
     box-sizing: border-box;
 }
 
-
-
 .hero {
     padding: 20px 35px;
     background-image: url("./../images/recipe3.png");
     height: 200px;
+    background-repeat: no-repeat;
    
 }
+
+
 
 a:hover{
     color:teal;
@@ -85,5 +86,10 @@ p {
 }
 
 .instructions {
-    padding: 5px;
+    padding: 5px 40px 5px 0px;
+}
+
+.btn-large i {
+    font-size: 1.6rem;
+    background-color:#800020;
 }

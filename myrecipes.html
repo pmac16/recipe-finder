@@ -10,89 +10,83 @@
     integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" 
     crossorigin="anonymous" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
     <title>Recipe Finder | My Recipes</title>
 </head>
 <body>
 
-    <!-- header -->
     <header>
-        <h1 class="center-align">Saved Recipes
-        </h1>
+        <h1 class="center-align">Saved Recipes</h1>
     </header>
 
     <section class="hero"></section>
 
+    <main>
+        <!-- Filter Recipe -->
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <select id="recipe-filter">
+                <option value="" disabled selected>Filter By:</option>
+                <option value="food">Food Recipes</option>
+                <option value="drink">Drink Recipes</option>
+                <option value="both">All Recipes</option>
+                </select>
+            </div>  
+        </div>
 
-    <!-- Search and My Recipe -->
-    <div class="row">
-        <!-- Search -->
-        <div class="col s12 m4 l3 grey lighten-2 search"> 
-            <!-- Search bar for food -->
-            <div class="row search">
-                <form class="col s12" id="food-form">
-                    <div class="row">
-                        <h5>Search for a Meal:</h5>
-                        <div class="input-field col s6">
-                            
-                            <input id="meal-search" type="text" class="validate" placeholder="Type an ingredient!">
-                        </div>
-                        <div class="input-field col s6">
-                            <button class="btn hoverable blue-grey lighten-2" type="submit" name="action">
-                                <i class="material-icons right">search</i>
-                              </button>
-                        </div>
+        <!-- Display Recipes -->
+        <div class="row" id="display-favorites">
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/assets/images/26JPFLEX1-articleLarge-v3.jpg">
+                        <span class="card-title">Name of Recipe</span>
                     </div>
-                </form>
-            </div>
-            <!-- Search bar for drinks -->
-            <div class="row search">
-                <form class="col s12" id="drink-form">
-                    <div class="row">
-                        <h5>Search for a Drink:</h5>
-                        <div class="input-field col s6">
-                            
-                            <input id="drink-search" type="text" class="validate" placeholder="Type an ingredient!">
-                        </div>
-                        <div class="input-field col s6">
-                            <button class="btn hoverable blue-grey lighten-2" type="submit" name="action">
-                                <i class="material-icons right">search</i>
-                              </button>
-                        </div>
+                    <div class="card-action">
+                        <a href="#">Recipe Link</a>
                     </div>
-                </form>
+                </div>
             </div>
-        
-        <!-- favorites recipe display -->
-        <div class="col s12 m8 l9 collection search" id="display-recipe"> 
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/assets/images/26JPFLEX1-articleLarge-v3.jpg">
+                        <span class="card-title">Name of Recipe</span>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Recipe Link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/assets/images/26JPFLEX1-articleLarge-v3.jpg">
+                        <span class="card-title">Name of Recipe</span>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Recipe Link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    </main>
+    
+    
+  <!-- Link back to main page -->
+  <div class="fixed-action-btn">
+    <a href="index.html" class="btn-floating btn-large red">
+      <i class="large material-icons">home</i>
+    </a>
+  </div>
+    
+
   
-        </div>
-  
-    </div>
-
-    <!-- dynamic styling references -->
-    <!-- <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="images/office.jpg">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-          <p><a href="#">This is a link</a></p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-          <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        </div>
-      </div> -->
     
-    <footer>
-      <a href="index.html" class="btn-floating btn-large waves-effect waves-light home-button"><i class="material-icons">home</i></a> 
-    </footer>
-    
-
-    <!-- Link back to main page -->
-    
-
+   
     <script src="./assets/js/myrecipes.js"></script>
 </body>
 </html>

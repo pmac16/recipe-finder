@@ -26,7 +26,13 @@ var saveRecipes = function () {
 
 
 /* EVENT LISTENERS */
-
-
+$(document).ready(function(){
+    $('select').formSelect();
+});
+      
+$(document).ready(function(){
+    $('.fixed-action-btn').floatingActionButton();
+  });
+       
 /* MAIN CODE */
 loadRecipes();
