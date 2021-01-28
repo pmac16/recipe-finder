@@ -3,28 +3,90 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" 
-    integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" 
-    crossorigin="anonymous" />
+
+    <link 
+        rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" 
+        integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" 
+        crossorigin="anonymous" 
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css" />
+    
     <title>Recipe Finder</title>
 </head>
+
 <body>
-    <!-- header -->
-    <!-- TODO: header bar with title name here! -->
+    <!-- header bar with title name -->
+    <header>
+        <h1 class="center-align">RECIPE FINDER
+        </h1>
+    </header>
 
-    <!-- split into 2 sections: searchbars and main content -->
+    <div class="container">
+        <img class="responsive-img" src="assets/images/recipe3.png" alt="pictures of food and drink"/>
+    </div>
+
+    <!-- Search and My Recipe -->
     <div class="row">
-
-        <div class="col s3">
-          <!-- TODO: searchbars and link to "my recipes" -->
+        <!-- Search -->
+        <div class="col s12 m4 l3 grey lighten-2 search"> 
+            <!-- Search bar for food -->
+            <div class="row search">
+                <form class="col s12" id="food-form">
+                    <div class="row">
+                        <h5>Search for a Meal:</h5>
+                        <div class="input-field col s6">
+                            
+                            <input id="meal-search" type="text" class="validate" placeholder="Type an ingredient!">
+                        </div>
+                        <div class="input-field col s6">
+                            <button class="btn hoverable blue-grey lighten-2" type="submit" name="action">
+                                <i class="material-icons right">search</i>
+                              </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Search bar for drinks -->
+            <div class="row search">
+                <form class="col s12" id="drink-form">
+                    <div class="row">
+                        <h5>Search for a Drink:</h5>
+                        <div class="input-field col s6">
+                            
+                            <input id="drink-search" type="text" class="validate" placeholder="Type an ingredient!">
+                        </div>
+                        <div class="input-field col s6">
+                            <button class="btn hoverable blue-grey lighten-2" type="submit" name="action">
+                                <i class="material-icons right">search</i>
+                              </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Link for saved recipes -->
+            <div class="row center-align">
+                <a href="myrecipes.html">
+                    <button class="btn blue-grey lighten-2" type="submit" name="action">My Recipes
+                    <i class="material-icons hoverable">book</i>
+                  </button></a>
+            </div>
         </div>
-  
-        <div class="col s9">
-          <main id="display-recipe"></main>
+        
+        <!-- Section for recipe display -->
+        <div class="row">
+            <h3 class="col s12 m8 l9" id="search-title"></h3>
+            <div class="col s12 m8 l9 collection search" id="display-recipe"></div>
         </div>
   
     </div>
+ 
+
     <script src="./assets/js/homepage.js"></script>
 </body>
 </html>

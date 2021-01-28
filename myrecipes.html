@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" 
+    integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" 
+    crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <title>Recipe Finder | My Recipes</title>
+</head>
+<body>
+
+    <header>
+        <h1 class="center-align">Saved Recipes</h1>
+    </header>
+
+    <div class="container">
+        <img class="responsive-img" src="assets/images/recipe3.png" alt="pictures of food and drink"/>
+    </div>
+
+    <main>
+        <!-- Filter Recipe -->
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <select id="recipe-filter">
+                <option value="" disabled selected>Filter By:</option>
+                <option value="meal">Food Recipes</option>
+                <option value="drink">Drink Recipes</option>
+                <option value="none">All Recipes</option>
+                </select>
+            </div>  
+        </div>
+
+        <!-- Display Recipes -->
+            <div class="row" id="display-favorites"></div>
+            
+    </main>
+    
+  <!-- Link back to main page -->
+  <div class="fixed-action-btn">
+    <a href="index.html" class="btn-floating btn-large red">
+      <i class="large material-icons">home</i>
+    </a>
+  </div>
+   
+    <script src="./assets/js/myrecipes.js"></script>
+</body>
+</html>
