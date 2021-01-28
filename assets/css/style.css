@@ -36,9 +36,9 @@ body {
 }
 
 /* display section */
-/* avatar section */
+/* collection section */
 
-.collection .collection-item.avatar .title {
+.collection .collection-item .title {
     font-size: 32px;
     color: black;
     /* padding: 2px; */
@@ -49,27 +49,32 @@ body {
     border: 2px solid black;
 }
 
-.collection .collection-item.avatar .secondary-content {
+/* .collection .collection-item.avatar .secondary-content {
     position: absolute;
     top: 40px;
     right: 16px;
    
-}
+} */
 
 .secondary-content {
     color: #800020  ;
 }
 
-.collection .collection-item.avatar {
+/* .collection .collection-item.avatar {
     min-height: 120px;
     padding-left: 150px;
     text-align: left;
     display: block;
+} */
+
+.collection .collection-item .title {
+    /* padding-top: 40px; */
+    line-height: 1em;
 }
 
-.collection .collection-item.avatar .title {
-    padding-top: 40px;
-    line-height: 1em;
+.text-container {
+    padding-left: 2em;
+    width: 100%;
 }
 
 .home-button {
@@ -88,6 +93,7 @@ p {
 
 .instructions {
     padding: 5px 40px 5px 0px;
+    margin: 0;
 }
 
 .btn-large i {

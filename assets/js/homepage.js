@@ -92,13 +92,12 @@ var mealDisplay = function (data) {
     
     //create display for each recipe
     var singleDisplayEl = document.createElement("li");
-    singleDisplayEl.className = "collection-item avatar valign-wrapper";
-    singleDisplayEl.id = "meal-container";
+    singleDisplayEl.className = "collection-item valign-wrapper";
     singleDisplayEl.setAttribute('data-id', id);
     
     //link recipe to recipe name
     var nameEl = document.createElement("a");
-    nameEl.className = "title title-change valign-wrapper";
+    nameEl.className = "title title-change text-container valign-wrapper";
     nameEl.textContent = mealName;
 
     // if mealLink exists, link to it.
@@ -218,15 +217,14 @@ var drinkDisplay = function (data) {
 
     //create display for each recipe
     var singleDisplayEl = document.createElement("li");
-    singleDisplayEl.className = "collection-item avatar valign-wrapper";
-    singleDisplayEl.id = "drink-container";
+    singleDisplayEl.className = "collection-item valign-wrapper";
     singleDisplayEl.setAttribute('data-id', id);
     
     //display recipe image 
     var picEl = document.createElement("img");
     picEl.setAttribute("src", drinkPic);
     picEl.style = "width:100px;height:100px";
-    picEl.classList = "circle portrait responsiv-o";
+    picEl.classList = "circle portrait responsive-img";
 
     //display recipe name
     var nameEl = document.createElement("span");
@@ -243,9 +241,16 @@ var drinkDisplay = function (data) {
     saveButton.classList = "secondary-content";
     saveButton.innerHTML = "<i class='material-icons'>grade</i>";
 
-    singleDisplayEl.appendChild(nameEl);
+    // add div to hold both name and instructions
+    var textEl = document.createElement("div");
+    textEl.className = "text-container";
+    textEl.appendChild(nameEl);
+    textEl.appendChild(instructionsEl);
+
     singleDisplayEl.appendChild(picEl);
-    singleDisplayEl.appendChild(instructionsEl);
+    // singleDisplayEl.appendChild(nameEl);
+    // singleDisplayEl.appendChild(instructionsEl);
+    singleDisplayEl.appendChild(textEl);
     singleDisplayEl.appendChild(saveButton);
     displayRecipeEl.appendChild(singleDisplayEl);
 
