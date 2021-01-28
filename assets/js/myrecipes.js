@@ -95,11 +95,20 @@ var recipeDisplay = function (recipeObj) {
     else if (recipeObj.recipe) {
         ingredientsEl.textContent = recipeObj.recipe || "";
         cardActionEl.appendChild(ingredientsEl);
+        // ingredientsEl.appendChild(oneIngredientEl);
 
+            // for (var i = 0; i < recipeObj.ingredients.length; i++) {
+            //     var oneIngredientEl = document.createElement("li");
+    
+            //     oneIngredientEl.textContent = recipeObj.ingredients[i];
+                
+                
+            // }
         }
         else {
             cardActionEl.appendChild(recipeEl)
         }
+
    
    nameImageEl.appendChild(picEl);
    nameImageEl.appendChild(nameEl);
