@@ -94,13 +94,14 @@ p {
     background-color:#800020;
 }
 
-.flex-row {
-    display: flex;
-    flex-wrap: wrap;
+@media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 50px;
+    }
   }
 
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 50px;
+    }
   }

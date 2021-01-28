@@ -58,7 +58,7 @@ var displayRecipes = function (filterOption) {
 var recipeDisplay = function (recipeObj) {
     // make container div element //card
     var displayEl = document.createElement("div");
-    displayEl.className="card";
+    displayEl.className="card col s4";
 
     //make container card element
     var nameImageEl=document.createElement("div");
@@ -81,7 +81,8 @@ var recipeDisplay = function (recipeObj) {
     
     var recipeEl = document.createElement("a");
       // instructions, if any
-      var instructionsEl = document.createElement("p");
+    
+    var ingredientsEl = document.createElement("ul");
     
     if (recipeObj.link) {
         
@@ -89,39 +90,17 @@ var recipeDisplay = function (recipeObj) {
 
         recipeEl.setAttribute("href", recipeObj.link);
         recipeEl.setAttribute("target", "_blank");
+        cardActionEl.appendChild(recipeEl)
     }
-    else {
-        instructionsEl.textContent = recipeObj.recipe || "";
+    else if (recipeObj.recipe) {
+        ingredientsEl.textContent = recipeObj.recipe || "";
+        cardActionEl.appendChild(ingredientsEl);
 
-    }
-    
-   
-
-  
-    
-
-    // ingredients list, if any
-    var ingredientsEl = document.createElement("ul");
-    if (recipeObj.ingredients) {
-        for (var i = 0; i < recipeObj.ingredients.length; i++) {
-            var oneIngredientEl = document.createElement("li");
-
-            oneIngredientEl.textContent = recipeObj.ingredients[i];
-            
-            ingredientsEl.appendChild(oneIngredientEl);
         }
-    }
-
-    // append all to displayEl and display it
-   //link append to cardActionEl
-   //cardActionEl append to display
-   //card-image appends to display
-   //image appends to card-image
-   //span appends to card-image
-   //card appends to displayel
-   //
-
-   cardActionEl.appendChild(recipeEl)
+        else {
+            cardActionEl.appendChild(recipeEl)
+        }
+   
    nameImageEl.appendChild(picEl);
    nameImageEl.appendChild(nameEl);
    displayEl.appendChild(nameImageEl);
@@ -129,13 +108,6 @@ var recipeDisplay = function (recipeObj) {
    displayEl.appendChild(cardActionEl);
    displayFavoritesEl.appendChild(displayEl);
 
-
-    // displayEl.appendChild(nameEl);
-    // displayEl.appendChild(picEl);
-    // displayEl.appendChild(instructionsEl);
-    // // displayEl.appendChild(ingredientsEl);
-
-    // displayFavoritesEl.appendChild(displayEl);
 };
 
 
