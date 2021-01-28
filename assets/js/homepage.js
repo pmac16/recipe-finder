@@ -45,8 +45,7 @@ var mealAPIQuery = function (ingredient) {
             response.json().then(function (data) {
                 // if there are no meals in data, display message
                 if (!data.meals) {
-                    var InputIdPlaceholder = "This Ingredient does not exist. Please choose a different ingredient";
-                    searchTitleEl.textContent = InputIdPlaceholder;
+                    searchTitleEl.textContent = "This Ingredient could not be found. Please search for a different ingredient.";
                 }
                 // if there is at least one meal in data, display the meal(s).
                 else {
@@ -63,8 +62,7 @@ var mealAPIQuery = function (ingredient) {
 // note that the mealdb filter endpoint DOES NOT include the recipes of each meal.
 // we need to do another query on each of these meals.
 var displayMeals = function (data) {
-    // clear displayRecipeEl and displayData
-    displayRecipeEl.innerHTML = "";
+    // clear displayData
     displayData = [];
 
     // stop the loop when ten meals are displayed, or we have displayed all meals
@@ -154,22 +152,29 @@ var drinkFormSubmitHandler = function (event) {
 
 // search the drinkdb API by this ingredient, then display the results
 var drinkAPIQuery = function (ingredient) {
-    console.log(ingredient)
+    // clear the displayRecipeEl and its title
+    displayRecipeEl.innerHTML = "";
+    searchTitleEl.textContent = "";
+
     var apiUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredient;
-    console.log(apiUrl)
 
     fetch(apiUrl)
     .then(function (response) {
         if (response.ok) {
-            console.log(response)
-            return response.json();
+            return response.text();
         }
+    })
+    .then(function (text) {
+        if (text) {
+            return JSON.parse(text);
+        }
+        // if there's no text: return an object with a property of "drinks: null"
+        return { drinks: null };
     })
     .then (function (data) {
         // if there are no drinks in data, display message
         if (!data.drinks) {
-            var InputIdPlaceholder = "This Ingredient does not exist. Please choose a different ingredient";
-            searchTitleEl.textContent = InputIdPlaceholder;
+            searchTitleEl.textContent = "This Ingredient could not be found. Please search for a different ingredient.";
         }
         // if there is at least one drink in data, display the meal(s).
         else {
@@ -183,8 +188,7 @@ var drinkAPIQuery = function (ingredient) {
 // note that the drinkdb filter endpoint DOES NOT include the recipes of each drink.
 // we need to do another query on each of these meals.
 var displayDrinks = function (data) {
-    // clear displayRecipeEl and displayData
-    displayRecipeEl.innerHTML = "";
+    // clear displayData
     displayData = [];
 
     // stop the loop when ten drinks are displayed, or we have displayed all drinks
