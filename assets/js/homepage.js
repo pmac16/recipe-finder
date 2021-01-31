@@ -93,7 +93,6 @@ var mealDisplay = function (data) {
     //create display for each recipe
     var singleDisplayEl = document.createElement("li");
     singleDisplayEl.className = "collection-item avatar valign-wrapper";
-    singleDisplayEl.id = "meal-container";
     singleDisplayEl.setAttribute('data-id', id);
     
     //link recipe to recipe name
@@ -219,7 +218,6 @@ var drinkDisplay = function (data) {
     //create display for each recipe
     var singleDisplayEl = document.createElement("li");
     singleDisplayEl.className = "collection-item avatar valign-wrapper";
-    singleDisplayEl.id = "drink-container";
     singleDisplayEl.setAttribute('data-id', id);
     
     //display recipe image 
